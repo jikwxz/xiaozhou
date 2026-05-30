@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 43 27% 94%;
+    --card: 0 0% 6%;
+    --card-foreground: 43 27% 94%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 43 27% 94%;
+    --primary: 37 39% 59%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 38 14% 80%;
+    --secondary-foreground: 0 0% 4%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 38 14% 67%;
+    --accent: 37 39% 59%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 4 68% 47%;
+    --destructive-foreground: 43 27% 94%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 37 39% 59%;
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-[#0a0a0a] text-[#f4f1ea] antialiased;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  * {
+    cursor: none;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Noto Serif SC', serif;
+  }
+
+  .font-sans {
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'Cutive Mono', monospace;
+  }
+
+  .glass-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.03), 0 20px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    padding: 40px;
+    color: #f4f1ea;
+  }
+
+  .glass-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.05) 100%);
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 1;
+  }
+
+  .glass-edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 22px;
+    padding: 1.4px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.5) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.25;
+  }
+
+  .glass-highlight {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    filter: blur(2px);
+    opacity: 0.6;
+  }
+
+  .glass-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .text-amber {
+    color: #c8a265;
+  }
+
+  .text-cream {
+    color: #f4f1ea;
+  }
+
+  .text-parchment {
+    color: #d5cfc1;
+  }
+
+  .bg-ink {
+    background-color: #0a0a0a;
+  }
+}
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+}
